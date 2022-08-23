@@ -9,3 +9,8 @@ input, select, textarea, span {
     display: block;
     margin-top:  15px;
 }
+
+textarea {
+    min-height: 100px;
+    min-width: 250px;
+}

@@ -9,6 +9,8 @@ const MyForm = ({user}) => {
     const [email, setEmail] = useState(user ? user.email :"");
     const [description, setDescription] = useState(user ? user.description : "");
     const [city, setCity] = useState(user ? user.city : "");
+    const [role, setRole] = useState(user ? user.role : "user");
+
 
 
     const handleName = (e) => {
@@ -34,6 +36,20 @@ const MyForm = ({user}) => {
         console.log(email);
         console.log(description);
         console.log(city);
+        console.log(role);
+
+
+        // Falidação dos dados
+
+        // Envio dos dados para a API
+
+        // Limpando formulário
+        setName("");
+        setEmail("");
+        setDescription("");
+        setCity("");
+        setRole("");
+
 
     }
   
@@ -54,16 +70,27 @@ const MyForm = ({user}) => {
             {/** Simplificando a manipulação de state */}
             <label>
                 <span>Descrição</span>
-                <textarea name="description" cols="30" rows="10" onChange={(e) => {
+                <textarea name="description" onChange={(e) => {
                     setDescription(e.target.value)
                 }} value={description}></textarea>
-
-                <label>
-                    <span>Cidade</span>
-                    <input type="text" name="city" placeholder="Digite a cidade" onChange={handlerCity} value={city} />
-                </label>
-
             </label>
+
+            <label>
+                <span>Cidade</span>
+                <input type="text" name="city" placeholder="Digite a cidade" onChange={handlerCity} value={city} />
+            </label>
+
+            {/**Select */}
+            <label>
+                <span>Admin</span>
+                <select name="role" onChange={(e) => setRole(e.target.value)} value={role}>
+                    <option value="user">Usuário</option>
+                    <option value="editor">Editor</option>
+                    <option value="admin">Administrador</option>
+                </select>
+            </label>
+
+
             <input type="submit" value="Enviar" />
         </form>
     </div>
