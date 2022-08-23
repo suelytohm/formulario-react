@@ -5,7 +5,7 @@ form {
     
 }
 
-input, select, textarea {
+input, select, textarea, span {
     display: block;
     margin-top:  15px;
 }
